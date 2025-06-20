@@ -38,7 +38,7 @@ let db;
     });
 
     // Create a table if it doesn't exist
-    await db.execute(`
+    await db.execute(`DROP TABLE IF EXISTS Users
       CREATE TABLE IF NOT EXISTS Users (
         user_id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) UNIQUE NOT NULL,
@@ -49,7 +49,7 @@ let db;
       )
       `);
 
-      await db.execute(`
+      await db.execute(`DROP TABLE IF EXISTS Dogs
       CREATE TABLE IF NOT EXISTS Dogs(
         dog_id INT AUTO_INCREMENT PRIMARY KEY,
         owner_id INT NOT NULL,
@@ -59,7 +59,7 @@ let db;
       )
       `);
 
-    await db.execute(`DROP TABLE IF EXISTS WalkApplications
+    await db.execute(`DROP TABLE IF EXISTS WalkRequests
       CREATE TABLE IF NOT EXISTS WalkRequests (
         request_id INT AUTO_INCREMENT PRIMARY KEY,
         dog_id INT NOT NULL,
