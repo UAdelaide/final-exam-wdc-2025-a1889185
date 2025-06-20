@@ -164,6 +164,7 @@ let db;
         ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-19 19:00:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
         ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-20 08:45:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending')
       `);
+      // First 5 requests are handwitten, the rest are generated
     }
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
     if (rows[0].count === 0) {
