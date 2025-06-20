@@ -79,7 +79,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
     const [books] = await db.execute('SELECT * FROM books');
     res.json(books);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch open ' });
+    res.status(500).json({ error: 'Failed to fetch open walk requests' });
   }
 });
 
@@ -88,7 +88,7 @@ app.get('/api/walkers/summary', async (req, res) => {
     const [books] = await db.execute('SELECT * FROM books');
     res.json(books);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch books' });
+    res.status(500).json({ error: 'Failed to fetch summary of walkers' });
   }
 });
 
