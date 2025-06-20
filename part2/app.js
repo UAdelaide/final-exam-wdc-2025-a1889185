@@ -3,6 +3,7 @@ const path = require('path');
 require('dotenv').config();
 const mysql = require('mysql2/promise');
 
+// Added session management
 var session = require('express-session');
 
 const app = express();
