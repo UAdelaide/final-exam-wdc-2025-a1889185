@@ -111,7 +111,7 @@ let db;
         ('bruce123', 'brucewayne@wayneindustries.com', 'batman123', 'owner')
       `);
     }
-    [dogNum] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    let [dogNum] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
     if (dogNum[0].count === 0) {
       await db.execute(`
         INSERT INTO Dogs (owner_id, name, size) VALUES
@@ -122,7 +122,7 @@ let db;
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Min', 'medium')
       `);
     }
-    [reqNum] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
+    let [reqNum] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
     if (reqNum[0].count === 0) {
       await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
@@ -144,8 +144,8 @@ let db;
       `);
       // First 5 requests are handwitten, the rest are generated
     }
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
-    if (rows[0].count === 0) {
+    [appNum] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
+    if (appNum[0].count === 0) {
       await db.execute(`
         INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
         ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123'))), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
