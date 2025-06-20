@@ -109,7 +109,34 @@ let db;
         ('Brave New World', 'Aldous Huxley')
       `);
     }
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
+    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (rows[0].count === 0) {
+      await db.execute(`
+        INSERT INTO books (title, author) VALUES
+        ('1984', 'George Orwell'),
+        ('To Kill a Mockingbird', 'Harper Lee'),
+        ('Brave New World', 'Aldous Huxley')
+      `);
+    }
+    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (rows[0].count === 0) {
+      await db.execute(`
+        INSERT INTO books (title, author) VALUES
+        ('1984', 'George Orwell'),
+        ('To Kill a Mockingbird', 'Harper Lee'),
+        ('Brave New World', 'Aldous Huxley')
+      `);
+    }
+    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (rows[0].count === 0) {
+      await db.execute(`
+        INSERT INTO books (title, author) VALUES
+        ('1984', 'George Orwell'),
+        ('To Kill a Mockingbird', 'Harper Lee'),
+        ('Brave New World', 'Aldous Huxley')
+      `);
+    }
+    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO books (title, author) VALUES
