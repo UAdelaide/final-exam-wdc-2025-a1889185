@@ -144,7 +144,7 @@ let db;
       `);
       // First 5 requests are handwitten, the rest are generated
     }
-    [appNum] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
+    let [appNum] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
     if (appNum[0].count === 0) {
       await db.execute(`
         INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
@@ -166,8 +166,8 @@ let db;
       `);
       // First 5 requests are applications, the rest are generated
     }
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
-    if (rows[0].count === 0) {
+    let [rateNum] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
+    if (rateNum[0].count === 0) {
       await db.execute(`
         INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments) VALUES
         ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Ace' AND owner_id = (SELECT user_id FROM Users WHERE username = 'bruce123')) AND requested_time = '2025-06-19 20:30:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), (SELECT user_id FROM Users WHERE username = 'bruce123'), 5, 'Ace was on patrol, all good.'),
