@@ -136,7 +136,7 @@ let db;
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
     if (rows[0].count === 0) {
       await db.execute(`
-        INSERT INTO books (title, author) VALUES
+        INSERT INTO WalkApplications (title, author) VALUES
         ('1984', 'George Orwell'),
         ('To Kill a Mockingbird', 'Harper Lee'),
         ('Brave New World', 'Aldous Huxley')
