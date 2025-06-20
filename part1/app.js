@@ -132,7 +132,6 @@ let db;
         ((SELECT dog_id FROM Dogs WHERE name = 'Ace' AND owner_id = (SELECT user_id FROM Users WHERE username = 'bruce123')), '2025-06-19 20:30:00', 30, 'Patrol', 'completed'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Min' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')), '2025-06-10 08:30:00', 30, 'CBD', 'open')
       `);
-      // First 5 requests are handwitten, the rest are generated
     }
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
     if (rows[0].count === 0) {
@@ -143,16 +142,6 @@ let db;
         ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Scooby' AND owner_id = (SELECT user_id FROM Users WHERE username = 'shaggy123'))), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending'),
         ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Ace' AND owner_id = (SELECT user_id FROM Users WHERE username = 'bruce123'))), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
         ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Min' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123'))), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-11 07:30:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-12 10:00:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-13 11:00:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'rejected'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-14 18:00:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-15 09:00:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-16 08:15:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-17 10:30:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-18 12:00:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-19 19:00:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
-        ((SELECT request_id FROM WalkRequests WHERE requested_time = '2025-06-20 08:45:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'pending')
       `);
     }
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
