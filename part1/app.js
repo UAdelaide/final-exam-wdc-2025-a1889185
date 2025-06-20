@@ -70,7 +70,7 @@ app.get('/api/dogs', async (req, res) => {
     const [books] = await db.execute('SELECT * FROM books');
     res.json(books);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch books' });
+    res.status(500).json({ error: 'Failed to fetch dogs' });
   }
 });
 
@@ -79,11 +79,11 @@ app.get('/api/walkrequests/open', async (req, res) => {
     const [books] = await db.execute('SELECT * FROM books');
     res.json(books);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch books' });
+    res.status(500).json({ error: 'Failed to fetch open ' });
   }
 });
 
-app.get('/', async (req, res) => {
+app.get('/api/walkers/summary', async (req, res) => {
   try {
     const [books] = await db.execute('SELECT * FROM books');
     res.json(books);
