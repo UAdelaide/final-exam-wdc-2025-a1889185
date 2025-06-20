@@ -105,7 +105,7 @@ let db;
         ('bobwalker', 'bob@example', 'hashed456', 'walker'),
         ('carol123', 'carol@example.com', 'hashed789', 'owner'),
         ('shaggy123', 'shaggy@mysteryinc.com', 'zoinkssc00b', 'owner'),
-        ('bruce123', 'brucewayne@wayneindustries.com', 'batman123', 'owner')`);
+        ('bruce123', 'brucewayne@wayneindustries.com', 'batman123', 'walker')`);
     await db.query(`INSERT INTO Dogs (owner_id, name, size) VALUES
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
