@@ -137,9 +137,7 @@ let db;
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
+        
       `);
     }
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
