@@ -208,7 +208,7 @@ app.get('/api/walkers/summary', async (req, res) => {
         Users.username AS walker_username,
         COUNT(WalkRequests.request_id) AS total_ratings,
         AVG(WalkRatings.rating) AS average_rating,
-        
+        COUNT(DISTINCT WalkRequests.request_id) AS total_walks,
       `);
     res.json(walkers);
   } catch (err) {
