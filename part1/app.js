@@ -59,7 +59,7 @@ let db;
       )
       `);
 
-    await db.execute(`
+    await db.execute(`DROP TABLE IF EXISTS WalkApplications
       CREATE TABLE IF NOT EXISTS WalkRequests (
         request_id INT AUTO_INCREMENT PRIMARY KEY,
         dog_id INT NOT NULL,
@@ -71,8 +71,8 @@ let db;
         FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
       )
     `);
-    await db.execute(`
-      CREATE TABLE IF NOT EXISTS WalkApplications (
+    await db.execute(`DROP TABLE IF EXISTS WalkApplications
+      CREATE TABLE WalkApplications (
         application_id INT AUTO_INCREMENT PRIMARY KEY,
         request_id INT NOT NULL,
         walker_id INT NOT NULL,
