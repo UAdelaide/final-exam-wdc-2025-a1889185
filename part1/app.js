@@ -142,7 +142,7 @@ let db;
         ((SELECT dog_id FROM Dogs WHERE name = 'Ace' AND owner_id = (SELECT user_id FROM Users WHERE username = 'bruce123')), '2025-06-19 19:00:00', 45, 'Downtown', 'accepted'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Min' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')), '2025-06-20 08:45:00', 30, 'Suburban Park', 'open')
       `);
-      // First 5 req
+      // First 5 requests are handwitten, the rest are generated
     }
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
     if (rows[0].count === 0) {
