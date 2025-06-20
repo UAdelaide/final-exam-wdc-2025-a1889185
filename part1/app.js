@@ -60,7 +60,7 @@ let db;
       `);
 
     await db.execute(`
-      CREATE TABLE WalkRequests (
+      CREATE TABLE IF NOT EXISTS WalkRequests (
         request_id INT AUTO_INCREMENT PRIMARY KEY,
         dog_id INT NOT NULL,
         requested_time DATETIME NOT NULL,
@@ -83,7 +83,7 @@ let db;
         CONSTRAINT unique_application UNIQUE (request_id, walker_id)
       )
     `);
-    await db.execute(``);
+    await db.execute(`);
 
 CREATE TABLE WalkRatings (
     rating_id INT AUTO_INCREMENT PRIMARY KEY,
