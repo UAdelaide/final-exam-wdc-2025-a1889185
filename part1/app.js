@@ -98,7 +98,7 @@ let db;
         CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
       )
     `);
-        await db.execute('SET FOREIGN_KEY_CHECKS = 0');
+    await db.execute('SET FOREIGN_KEY_CHECKS = 0');
     await db.execute('TRUNCATE TABLE WalkRatings');
     await db.execute('TRUNCATE TABLE WalkApplications');
     await db.execute('TRUNCATE TABLE WalkRequests');
