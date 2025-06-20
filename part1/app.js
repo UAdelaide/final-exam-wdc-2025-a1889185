@@ -102,18 +102,9 @@ let db;
     // Insert data if table is empty
     let [usersNum] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (usersNum[0].count === 0) {
-      await db.execute(`
-        INSERT INTO Users (username, email, password_hash, role) VALUES
-        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-        ('bobwalker', 'bob@example', 'hashed456', 'walker'),
-        ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-        ('shaggy123', 'shaggy@mysteryinc.com', 'zoinkssc00b', 'owner'),
-        ('bruce123', 'brucewayne@wayneindustries.com', 'batman123', 'owner')
-      `);
+      
     }
-    let [dogNum] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
-    if (dogNum[0].count === 0) {
-      await db.execute(`
+    await db.execute(`
         INSERT INTO Dogs (owner_id, name, size) VALUES
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
@@ -121,7 +112,6 @@ let db;
         ((SELECT user_id FROM Users WHERE username = 'bruce123'), 'Ace', 'medium'),
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Min', 'medium')
       `);
-    }
     await db.execute(`
         INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
         ((SELECT dog_id FROM Dogs WHERE name = 'Max' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
