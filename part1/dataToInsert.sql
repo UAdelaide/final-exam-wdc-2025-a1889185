@@ -7,6 +7,5 @@ INSERT INTO Users (username, email, password_hash, role) VALUES
 
 INSERT INTO Dogs (owner_id, name, size) VALUES
 ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
-((SELECT user_id FROM Users WHERE username = 'alice
-((SELECT user_id FROM Users WHERE username = 'bobwalker'), 'Buddy', 'medium'),
+((SELECT user_id FROM Users WHERE username = 'carol'), 'Bella', 'small'),
 ((SELECT user_id FROM Users WHERE username
