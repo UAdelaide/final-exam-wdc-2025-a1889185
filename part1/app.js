@@ -214,6 +214,7 @@ app.get('/api/walkers/summary', async (req, res) => {
       LEFT JOIN WalkRequests ON WalkApplications.request_id = WalkRequests.request_id AND WalkRequests.status = 'completed'
       LEFT JOIN WalkRatings ON WalkRequests.request_id = WalkRatings.request_id AND WalkRatings.walker_id = Users.user_id
       WHERE Users.role = 'walker'
+      
       `);
     res.json(walkers);
   } catch (err) {
