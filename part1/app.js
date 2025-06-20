@@ -125,10 +125,12 @@ let db;
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
     if (rows[0].count === 0) {
       await db.execute(`
-        INSERT INTO books (title, author) VALUES
-        ('1984', 'George Orwell'),
-        ('To Kill a Mockingbird', 'Harper Lee'),
-        ('Brave New World', 'Aldous Huxley')
+        INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
+        ((SELECT dog_id FROM Dogs WHERE name = 'Max' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Bella' AND owner_id = (SELECT user_id FROM Users WHERE username = 'carol123')), '2025-06-10 09:45:00', 45, 'Beachside Ave', 'accepted'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Scooby' AND owner_id = (SELECT user_id FROM Users WHERE username = 'shaggy123')), '2025-06-20 10:00:00', 40, 'All you can eat Buffet', 'open'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Ace' AND owner_id = (SELECT user_id FROM Users WHERE username = 'bruce123')), '2025-06-19 20:30:00', 30, 'Patrol', 'completed'),
+        ((SELECT dog_id FROM Dogs WHERE name = 'Min' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')), '2025-06-10 08:30:00', 30, 'CBD', 'open')
       `);
     }
     [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
