@@ -13,8 +13,8 @@ app.use(express.json());
 app.use(session({
 secret: 'a string of your choice',
 resave: false,
-saveUninitialized: true, // //
-cookie: { secure: false } // //
+saveUninitialized: true,
+cookie: { secure: false }
 }));
 app.use(express.static(path.join(__dirname, '/public')));
 
