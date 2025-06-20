@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 
 app.use(session({
-secret: 'a string of your choice',
+secret: 'WDC2025',
 resave: false,
 saveUninitialized: true,
 cookie: { secure: false }
