@@ -39,7 +39,7 @@ let db;
 
     // Create a table if it doesn't exist
     await db.execute(`DROP TABLE IF EXISTS Users
-      CREATE TABLE IF NOT EXISTS Users (
+      CREATE TABLE Users (
         user_id INT AUTO_INCREMENT PRIMARY KEY,
         username VARCHAR(50) UNIQUE NOT NULL,
         email VARCHAR(100) UNIQUE NOT NULL,
@@ -50,7 +50,7 @@ let db;
       `);
 
       await db.execute(`DROP TABLE IF EXISTS Dogs
-      CREATE TABLE IF NOT EXISTS Dogs(
+      CREATE TABLE Dogs(
         dog_id INT AUTO_INCREMENT PRIMARY KEY,
         owner_id INT NOT NULL,
         name VARCHAR(50) NOT NULL,
@@ -60,7 +60,7 @@ let db;
       `);
 
     await db.execute(`DROP TABLE IF EXISTS WalkRequests
-      CREATE TABLE IF NOT EXISTS WalkRequests (
+      CREATE TABLE WalkRequests (
         request_id INT AUTO_INCREMENT PRIMARY KEY,
         dog_id INT NOT NULL,
         requested_time DATETIME NOT NULL,
