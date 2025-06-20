@@ -170,12 +170,8 @@ let db;
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO WalkRatings (request_id, walker_id, owner_id, rating, comments) VALUES
-        (
-          (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Ace' AND owner_id = (SELECT user_id FROM Users WHERE username = 'bruce123')) AND requested_time = '2025-06-19 20:30:00'),
-          (SELECT user_id FROM Users WHERE username = 'bobwalker'),
-          (SELECT user_id FROM Users WHERE username = 'bruce123'),
-          5,
-          'Ace was on patrol, all good.'
+        ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Ace' AND owner_id = (SELECT user_id FROM Users WHERE username = 'bruce123')) AND requested_time = '2025-06-19 20:30:00'), (SELECT user_id FROM Users WHERE username = 'bobwalker'),
+          (SELECT user_id FROM Users WHERE username = 'bruce123'), 5, 'Ace was on patrol, all good.'
         ),
         (
           (SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')) AND requested_time = '2025-06-11 07:30:00'),
