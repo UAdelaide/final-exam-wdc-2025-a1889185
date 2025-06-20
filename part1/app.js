@@ -83,7 +83,7 @@ let db;
         CONSTRAINT unique_application UNIQUE (request_id, walker_id)
       )
     `);
-    await db.execute(`);
+    await db.execute(`
       CREATE TABLE IF NOT EXISTS WalkRatings (
         rating_id INT AUTO_INCREMENT PRIMARY KEY,
         request_id INT NOT NULL,
