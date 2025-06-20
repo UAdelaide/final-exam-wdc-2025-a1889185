@@ -117,7 +117,7 @@ let db;
         ((SELECT dog_id FROM Dogs WHERE name = 'Bella' AND owner_id = (SELECT user_id FROM Users WHERE username = 'carol123')), '2025-06-10 09:45:00', 45, 'Beachside Ave', 'accepted'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Scooby' AND owner_id = (SELECT user_id FROM Users WHERE username = 'shaggy123')), '2025-06-20 10:00:00', 40, 'All you can eat Buffet', 'open'),
         ((SELECT dog_id FROM Dogs WHERE name = 'Mode' AND owner_id = (SELECT user_id FROM Users WHERE username = 'bruce123')), '2025-06-19 20:30:00', 30, 'Green ring around CBD', 'completed'),
-        ((SELECT dog_id FROM Dogs WHERE name = 'Min' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')), '2025-06-10 08:30:00', 30, 'CBD', 'open')`);
+        ((SELECT dog_id FROM Dogs WHERE name = 'Min' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123')), '2025-06-10 08:30:00', 30, 'CBD', 'Completed')`);
     // First 5 requests are handwitten, the rest are generated
     await db.query(`INSERT INTO WalkApplications (request_id, walker_id, status) VALUES
         ((SELECT request_id FROM WalkRequests WHERE dog_id = (SELECT dog_id FROM Dogs WHERE name = 'Max' AND owner_id = (SELECT user_id FROM Users WHERE username = 'alice123'))), (SELECT user_id FROM Users WHERE username = 'bobwalker'), 'accepted'),
