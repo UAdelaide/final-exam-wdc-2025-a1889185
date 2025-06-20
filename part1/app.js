@@ -60,10 +60,11 @@ let db;
     console.error('Error setting up database. Ensure Mysql is running: service mysql start', err);
   }
 })();
+
 // /api/dogs
-/api/walkrequests/open
-/api/walkers/summary
-// Route to return books as JSON
+// /api/walkrequests/open
+// /api/walkers/summary
+
 app.get('/', async (req, res) => {
   try {
     const [books] = await db.execute('SELECT * FROM books');
