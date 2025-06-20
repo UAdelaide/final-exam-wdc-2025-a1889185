@@ -61,8 +61,8 @@ createApp({
             dogImage: ''
         }
     },
-    mounted() {
-        fetch('https://dog.ceo/api/breeds/image/random')
+    methods: {
+        getDog(){('https://dog.ceo/api/breeds/image/random')
             .then(response => response.json())
             .then(data => {
                 this.dogImage = data.message;
