@@ -100,7 +100,7 @@ let db;
     `);
 
     // Insert data if table is empty
-    let [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
+    let [rows] = await db.execute('SELECT COUNT(*) AS count FROM Users');
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO books (title, author) VALUES
