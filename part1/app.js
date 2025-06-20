@@ -50,7 +50,8 @@ let db;
       `);
 
       await db.execute(`
-      CREATE TABLE IF NOT EXISTS WalkRequests ()`
+      CREATE TABLE IF NOT EXISTS Dogs(
+      )`);
 
     // Insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
