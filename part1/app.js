@@ -111,8 +111,8 @@ let db;
         ('bruce123', 'brucewayne@wayneindustries.com', 'batman123', 'owner')
       `);
     }
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
-    if (rows[0].count === 0) {
+    [dog] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    if (dog[0].count === 0) {
       await db.execute(`
         INSERT INTO Dogs (owner_id, name, size) VALUES
         ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
