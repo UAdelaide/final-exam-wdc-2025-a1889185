@@ -186,6 +186,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
       IF WalkRequests.status === 'open' SELECT
         WalkRequests.request_id,
         Dogs.name AS dog_name,
+        
         `);
     res.json(openRequests);
   } catch (err) {
