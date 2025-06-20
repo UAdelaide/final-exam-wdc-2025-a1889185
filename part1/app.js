@@ -71,6 +71,7 @@ let db;
         FOREIGN KEY (dog_id) REFERENCES Dogs(dog_id)
       )
     `);
+    await db.execute()
 
     // Insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
