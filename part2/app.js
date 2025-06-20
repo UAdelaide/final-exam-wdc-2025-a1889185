@@ -11,6 +11,7 @@ const app = express();
 // Middleware
 app.use(express.json());
 
+// Set session magnagement variables
 app.use(session({
 secret: 'WDC2025',
 resave: false,
