@@ -205,6 +205,7 @@ app.get('/api/walkers/summary', async (req, res) => {
   try {
     const [walkers] = await db.execute(`
       SELECT
+        Users.username AS walker_username,
       `);
     res.json(walkers);
   } catch (err) {
