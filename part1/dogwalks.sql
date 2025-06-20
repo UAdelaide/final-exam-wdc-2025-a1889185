@@ -37,7 +37,7 @@ CREATE TABLE WalkApplications (
     status ENUM('pending', 'accepted', 'rejected') DEFAULT 'pending',
     FOREIGN KEY (request_id) REFERENCES WalkRequests(request_id),
     FOREIGN KEY (walker_id) REFERENCES Users(user_id),
-    CONSTRAINT unique_application UNIQUE (request_id, walker_id)
+     (request_id, walker_id)
 );
 
 CREATE TABLE WalkRatings (
