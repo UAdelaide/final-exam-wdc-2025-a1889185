@@ -183,7 +183,7 @@ app.get('/api/dogs', async (req, res) => {
 app.get('/api/walkrequests/open', async (req, res) => {
   try {
     const [openRequests] = await db.execute(`
-      IF WalkRequests.status === 'open' SELECT
+      SELECT
         WalkRequests.request_id,
         Dogs.name AS dog_name,
         WalkRequests.requested_time,
