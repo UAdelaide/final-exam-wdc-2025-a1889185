@@ -72,7 +72,7 @@ let db;
       )
     `);
     await db.execute(`
-      CREATE TABLE WalkApplications (
+      CREATE TABLE IF NOT EXISTS WalkApplications (
         application_id INT AUTO_INCREMENT PRIMARY KEY,
         request_id INT NOT NULL,
         walker_id INT NOT NULL,
@@ -85,7 +85,7 @@ let db;
     `);
     await db.execute(`);
 
-CREATE TABLE WalkRatings (
+  CREATE TABLE IF NOT EXISTS WalkRatings (
     rating_id INT AUTO_INCREMENT PRIMARY KEY,
     request_id INT NOT NULL,
     walker_id INT NOT NULL,
@@ -97,7 +97,8 @@ CREATE TABLE WalkRatings (
     FOREIGN KEY (walker_id) REFERENCES Users(user_id),
     FOREIGN KEY (owner_id) REFERENCES Users(user_id),
     CONSTRAINT unique_rating_per_walk UNIQUE (request_id)
-);`)
+  )
+    `);
 
     // Insert data if table is empty
     const [rows] = await db.execute('SELECT COUNT(*) AS count FROM books');
