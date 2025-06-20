@@ -118,7 +118,7 @@ let db;
         ('Brave New World', 'Aldous Huxley')
       `);
     }
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRequests');
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO books (title, author) VALUES
@@ -127,7 +127,7 @@ let db;
         ('Brave New World', 'Aldous Huxley')
       `);
     }
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkApplications');
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO books (title, author) VALUES
@@ -136,7 +136,7 @@ let db;
         ('Brave New World', 'Aldous Huxley')
       `);
     }
-    [rows] = await db.execute('SELECT COUNT(*) AS count FROM Dogs');
+    [rows] = await db.execute('SELECT COUNT(*) AS count FROM WalkRatings');
     if (rows[0].count === 0) {
       await db.execute(`
         INSERT INTO books (title, author) VALUES
