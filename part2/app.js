@@ -9,6 +9,13 @@ const app = express();
 
 // Middleware
 app.use(express.json());
+
+app.use(session({ // //
+secret: ‘a string of your choice’, // //
+resave: false, // THIS CODE //
+saveUninitialized: true, // //
+cookie: { secure: false } // //
+}));
 app.use(express.static(path.join(__dirname, '/public')));
 
 // Routes
