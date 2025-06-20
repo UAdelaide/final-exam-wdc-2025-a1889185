@@ -83,7 +83,7 @@ let db;
         CONSTRAINT unique_application UNIQUE (request_id, walker_id)
       )
     `);
-    ;
+    await db.execute(``);
 
 CREATE TABLE WalkRatings (
     rating_id INT AUTO_INCREMENT PRIMARY KEY,
