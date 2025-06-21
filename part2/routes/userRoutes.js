@@ -38,7 +38,7 @@ router.get('/me', (req, res) => {
 // Get dogs of owner
 router.get('/my-dogs', async (req, res) => {
   if (!req.session.user || req.session.user.role !== 'owner') {
-    return 
+    return res.status(401).json({ error: 
 
 // POST login
 router.post('/login', async (req, res) => {
