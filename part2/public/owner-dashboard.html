@@ -42,11 +42,11 @@
     </div>
 
     <script>
-    document.getElementById('logoutBtn').onclick = async function() {
-      await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin' });
-      window.location.href = 'index.html';
-    };
-  </script>
+      document.getElementById('logoutBtn').onclick = async function() {
+        await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin' });
+        window.location.href = 'index.html';
+      };
+    </script>
 
     <!-- Success or error messages -->
     <div v-if="message" class="alert alert-info">{{ message }}</div>
