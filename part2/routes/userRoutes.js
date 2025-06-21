@@ -38,7 +38,7 @@ router.get('/me', (req, res) => {
 // POST login
 router.post('/login', async (req, res) => {
   const { username, password } = req.body;
-  console.log({ username, password })
+  console.log({ username, password });
   try {
     const [rows] = await db.query(`
       SELECT user_id, username, role FROM Users
@@ -48,6 +48,7 @@ router.post('/login', async (req, res) => {
     console.log(rows);
 
     if (rows.length === 1) {
+      console.log
       req.session.user = {id: rows[0].user_id, username: rows[0].username, role: rows[0].role};
       res.json({ success: true, role: rows[0].role});
     }
