@@ -15,7 +15,7 @@
     <h1 class="mb-4 text-primary">{{ message }}</h1>
     <p class="lead">Connect with trusted walkers for your beloved dog!</p>
     <div class="border rounded p-3 bg-light">
-      <form @submit.prevent="login">
+      <form @submit="login">
         <div class="form-group mb-3">
           <label for="usernameInput">Username</label>
           <input type="text" class="form-control" id="usernameInput" v-model="username">
