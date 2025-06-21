@@ -142,7 +142,8 @@
         onMounted( async () => {
           const userRes = await fetch('/api/users/me');
           if (userRes.ok) {
-            const user
+            const user = await userRes.json();
+            if (user.role
         })
 
         return {
