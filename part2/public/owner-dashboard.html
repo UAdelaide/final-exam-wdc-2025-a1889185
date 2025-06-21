@@ -150,6 +150,7 @@
 
         onMounted(() => {
           loadWalks();
+          loadDogs();
         });
 
         onMounted( async () => {
@@ -170,6 +171,7 @@
         return {
           form,
           walks,
+          
           message,
           error,
           submitWalkRequest
