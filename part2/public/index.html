@@ -47,7 +47,7 @@
         async login() {
           const res = await fetch('/api/users/login', {
             method: 'POST',
-            headers: {}
+            headers: {'Content-Type': 'application/json'}
           })
         }
       }
