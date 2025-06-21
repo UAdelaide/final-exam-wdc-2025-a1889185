@@ -48,11 +48,11 @@ router.post('/login', async (req, res) => {
     console.log(rows);
 
     if (rows.length === 1) {
-      console.log(rows[0].username, rows[0].role)
+      console.log(rows[0].username, rows[0].role);
       req.session.user = {id: rows[0].user_id, username: rows[0].username, role: rows[0].role};
       res.json({ success: true, role: rows[0].role});
     } else {
-      console.log
+      console.log('invalid');
       res.status(401).json({ success: false, message: 'Invalid credentials' });
     }
   } catch (error) {
