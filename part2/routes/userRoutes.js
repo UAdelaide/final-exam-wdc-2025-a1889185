@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const db = require('../models/').db;
+const db = require('../models/db.js');
 
 // GET all users (for admin/testing)
 router.get('/', async (req, res) => {
