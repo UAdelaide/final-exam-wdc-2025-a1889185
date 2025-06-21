@@ -42,7 +42,10 @@ router.get('/my-dogs', async (req, res) => {
   }
   try {
 
-  } catch 
+  } catch (error) {
+
+  }
+});
 
 // POST login
 router.post('/login', async (req, res) => {
