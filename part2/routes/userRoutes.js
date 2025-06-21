@@ -41,7 +41,7 @@ router.get('/my-dogs', async (req, res) => {
     return res.status(401).json({ error: 'Not authorised' });
   }
   try {
-
+    const [rows] = await db.query
   } catch (error) {
 
   }
