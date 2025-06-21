@@ -16,7 +16,8 @@
       <button type="button" id="logoutBtn" class="btn btn-danger">Logout</button>
       <script>
       document.getElementById('logoutBtn').onclick = async function() {
-        await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin'
+        await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin' });
+        window.location.href = 'index'
 
       }
       </script>
