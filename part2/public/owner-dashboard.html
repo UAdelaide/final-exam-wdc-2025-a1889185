@@ -17,7 +17,7 @@
   </div>
     <script>
       document.getElementById('logoutBtn').onclick = async function() {
-        await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin' });
+        await fetch('/logout', { method: 'POST', credentials: 'same-origin' });
         window.location.href = 'index.html';
       };
     </script>
