@@ -36,6 +36,7 @@ router.get('/me', (req, res) => {
 });
 
 // Get dogs of owner
+router.get('/my-dogs', asy)
 
 // POST login
 router.post('/login', async (req, res) => {
