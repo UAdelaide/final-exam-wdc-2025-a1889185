@@ -46,7 +46,8 @@
       methods: {
         async login() {
           const res = await fetch('/api/users/login', {
-            method: POST
+            method: 'POST',
+            headers: {}
           })
         }
       }
