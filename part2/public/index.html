@@ -53,7 +53,7 @@
           const data = await res.json();
           if (data.success) {
             if (data.role === 'owner') {
-              window
+              window.location.href = 'owner-dashboard.html';
             }
           }
         }
