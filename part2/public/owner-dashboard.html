@@ -67,14 +67,10 @@
   </div>
 
   <script>
-    // Wait for DOM to be ready
     window.addEventListener('DOMContentLoaded', function() {
-      console.log('Script loaded, looking for logoutBtn:', document.getElementById('logoutBtn'));
       document.getElementById('logoutBtn').onclick = async function() {
-        console.log('Logout button clicked');
         try {
           const res = await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin' });
-          console.log('Logout fetch response:', res);
           if (res.ok) {
             console.log('Logout successful, redirecting...');
             window.location.href = 'index.html';
