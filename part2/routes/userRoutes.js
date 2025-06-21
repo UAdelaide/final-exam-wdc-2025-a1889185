@@ -60,7 +60,8 @@ router.post('/logout', (req, res) => {
     if (err) {
       return res.status(500).json({error: 'logout failed'})
     }
-    res.clearCookie('connect.sid')
+    res.clearCookie('connect.sid');
+    res.json({ success: true}
   })
 })
 
