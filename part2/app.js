@@ -154,4 +154,4 @@ app.use('/api/users', userRoutes);
 
 // Export the app instead of listening here
 module.exports = app;
-module.exports.db = db;
+module.exports.db = db; //for database connection to index.html for user credentials and redirection
