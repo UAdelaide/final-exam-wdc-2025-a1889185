@@ -116,7 +116,7 @@
         async function loadDogs() {
           try {
             const res = await fetch('/api/users/my-dogs');
-            dogs.value
+            dogs.value = await res.json();
           }
         }
 
