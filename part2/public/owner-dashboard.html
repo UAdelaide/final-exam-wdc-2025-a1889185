@@ -65,13 +65,13 @@
     </div>
     <p v-else>No walk requests yet.</p>
   </div>
+
   <script>
     document.getElementById('logoutBtn').onclick = async function() {
       await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin' });
       window.location.href = 'index.html';
     };
   </script>
-
 
   <script>
     const { createApp, ref, onMounted } = Vue;
