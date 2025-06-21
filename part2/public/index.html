@@ -50,7 +50,10 @@
             headers: {'Content-Type': 'application/json'},
             body: JSON. stringify({username: this.username, password: this.password })
           });
-          const data = await res
+          const data = await res.json();
+          if (data.success) {
+            
+          }
         }
       }
     }).mount('#app');
