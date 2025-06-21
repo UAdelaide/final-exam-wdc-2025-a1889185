@@ -140,7 +140,9 @@
         });
 
         onMounted( async () => {
-          const userRes = await fetch('/api/users/me')
+          const userRes = await fetch('/api/users/me');
+          if (userRes.ok) {
+            const user
         })
 
         return {
