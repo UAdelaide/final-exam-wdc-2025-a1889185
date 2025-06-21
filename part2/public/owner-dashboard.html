@@ -12,15 +12,30 @@
 <body class="bg-light">
   <div id="app" class="container py-4">
     <div class="d-flex justify-content-between align-items-center mb-4">
-    <h1 class="text-primary mb-0">Owner Dashboard</h1>
-    <button type="button" id="logoutBtn" class="btn btn-danger">Logout</button>
-  </div>
-  <script>
-    document.getElementById('logoutBtn').onclick = async function() {
-      await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin' });
-      window.location.href = 'index.html';
-    };
-  </script>
+      <h1 class="text-primary mb-0">Owner Dashboard</h1>
+      <button type="button" id="logoutBtn" class="btn btn-danger">Logout</button>
+    </div>
+    <script>
+      console.log('Script loaded, looking for logoutBtn:', document.getElementById('logoutBtn'));
+      document.getElementById('logoutBtn').onclick = async function() {
+        console.log('Logout button clicked');
+        try {
+          const res = await fetch('/api/users/logout', { method: 'POST', credentials: 'same-origin' });
+          console.log('Logout fetch response:', res);
+          if (res.ok) {
+            console.log('Logout successful, redirecting...');
+            window.location.href = 'index.html';
+          } else {
+            const data = await res.json();
+            console.log('Logout failed:', data);
+            alert('Logout failed: ' + (data.message || 'Unknown error'));
+          }
+        } catch (err) {
+          console.log('Logout error:', err);
+          alert('Logout error: ' + err.message);
+        }
+      };
+    </script>
     <!-- Walk request form -->
     <div class="card mb-4">
       <div class="card-header bg-primary text-white">Create New Walk Request</div>
