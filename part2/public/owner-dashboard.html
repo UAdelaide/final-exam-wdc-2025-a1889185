@@ -144,7 +144,8 @@
           if (userRes.ok) {
             const user = await userRes.json();
             if (user.role === 'owner') {
-              const dogRes = await fetch(
+              const dogRes = await fetch('/api/users/my-dogs');
+              if 
         })
 
         return {
