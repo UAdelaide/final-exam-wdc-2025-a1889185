@@ -147,7 +147,9 @@
               const dogRes = await fetch('/api/users/my-dogs');
               if (dogRes.ok) {
                 dogs.value = await dogRes.json();
-        })
+              }
+        }
+    )
 
         return {
           form,
