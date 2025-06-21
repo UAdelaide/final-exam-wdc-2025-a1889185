@@ -48,7 +48,7 @@ router.post('/login', async (req, res) => {
     console.log(rows);
 
     if (rows.length === 1) {
-      console.log
+      console.log(rows[0].username, )
       req.session.user = {id: rows[0].user_id, username: rows[0].username, role: rows[0].role};
       res.json({ success: true, role: rows[0].role});
     }
